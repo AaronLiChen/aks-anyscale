@@ -4,10 +4,9 @@ controller:
     type: LoadBalancer
     annotations:
       service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/healthz"
-  # Snippet annotations can inject arbitrary NGINX directives and are unsafe
-  # for a shared ingress controller.
-  allowSnippetAnnotations: false
+  allowSnippetAnnotations: true
   config:
     enable-underscores-in-headers: true
+    annotations-risk-level: "Critical"
   autoscaling:
     enabled: true
